@@ -16,7 +16,7 @@ function Stats() {
             No gimmicks, spam, "gamification", or annoying push notifications.
             High quality apps that you use at your pace, the way you like.
           </p>
-          <h2 className="fs-4">The Zerodha universe</h2>
+          <h2 className="fs-4">The ShimulBhai universe</h2>
           <p className="text-muted">
             Not just an app, but a whole ecosystem. Our investments in 30+
             fintech startups offer you tailored services specific to your needs.

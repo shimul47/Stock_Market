@@ -11,6 +11,7 @@ import AboutPage from "./landingPage/about/AboutPage";
 import PricingPage from "./landingPage/pricing/PricingPage";
 import ProductsPage from "./landingPage/products/ProductsPage";
 import SupportPage from "./landingPage/support/SupportPage";
+import NotFound from "./NotFound";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -23,6 +24,7 @@ root.render(
       <Route path="/product" element={<ProductsPage />} />
       <Route path="/pricing" element={<PricingPage />} />
       <Route path="/support" element={<SupportPage />} />
+      <Route path="/*" element={<NotFound />} />
     </Routes>
     <Footer />
   </BrowserRouter>

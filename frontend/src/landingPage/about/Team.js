@@ -12,10 +12,10 @@ function Team() {
       >
         <div className="col-6 p-3 text-center">
           <img
-            src="media\images\nithinKamath.jpg"
-            style={{ borderRadius: "100%", width: "50%" }}
+            src="media\images\shimulbhai.png"
+            style={{ borderRadius: "100%", width: "40%" }}
           ></img>
-          <h4 className="mt-3">Nithin Kamath</h4>
+          <h4 className="mt-3">Sohanur Rahman</h4>
           <h6>Founder, CE0</h6>
         </div>
 
@@ -45,6 +45,7 @@ function Team() {
               {" "}
               Twitter
             </a>
+            <a>testing new connection</a>
           </p>
         </div>
       </div>

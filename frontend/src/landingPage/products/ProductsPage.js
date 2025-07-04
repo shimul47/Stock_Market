@@ -44,16 +44,13 @@ function ProductsPage() {
         googlePay=""
         appStore=""
       />
-      <LeftSection
-        imageURL="media\images\varsity-products.png"
-        productName="Varsity mobile"
-        productDescription="An easy to grasp, collection of stock market lessons with in-depth coverage and illustrations. Content is broken down into bite-size cards to help you learn on the go."
-        tryDemo="Varsity mobile"
-        learnMore=""
-        googlePay=""
-        appStore=""
-      />
-
+      <p className="text-center mt-5 mb-5">
+        Want to know more about our technology stack? Check out the{" "}
+        <a style={{ textDecoration: "none" }} href="">
+          Zerodha.tech blog{" "}
+          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+        </a>
+      </p>
       <Universe />
     </div>
   );

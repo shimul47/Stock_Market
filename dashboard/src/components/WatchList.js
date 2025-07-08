@@ -54,19 +54,4 @@ const WatchListItem = ({ stock }) => {
   );
 };
 
-const WatchListActions = ({ uid }) => {
-  return (
-    <span className="actions">
-      <span>
-        <Tooltip
-          title="Buy (B)"
-          placement="top"
-          arrow
-          TransitionComponent={Grow}
-        >
-          <button className="buy">Buy</button>
-        </Tooltip>
-      </span>
-    </span>
-  );
-};
+

@@ -9,6 +9,7 @@ const Holdings = () => {
       console.log(res.data);
     });
   }, []);
+
   return (
     <>
       <h3 className="title">Holdings ({allholdings.length})</h3>

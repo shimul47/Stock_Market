@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const { HoldingsModel } = require("./model/HoldingsModel");
 const { PositionsModel } = require("./model/PositionsModel");
+const { OrdersModel } = require("./model/OrdersModel");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
@@ -187,7 +188,17 @@ app.get("/allpositions", async (req, res) => {
   let allpositions = await PositionsModel.find({}); //fetch everything
   res.json(allpositions);
 });
-app.get("");
+app.post("/newOrder", async (req, res) => {
+  let newOrder = new OrdersModel({
+    name: req.body.name,
+    qty: req.body.qty,
+
+    price: req.body.price,
+    mode: req.body.mode,
+  });
+  newOrder.save();
+  res.send("order saved");
+});
 app.listen(PORT, () => {
   console.log(`App is listening ${PORT}`);
   mongoose.connect(uri);

@@ -4,25 +4,40 @@ import { useAuth } from "../../context/authContext";
 import { doCreateUserWithEmailAndPassword } from "../../firebase/auth";
 
 const Register = () => {
-  const { userLoggedIn, currentUser } = useAuth();
+  const { userLoggedIn, setCurrentUser } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const Navigate = useNavigate();
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (!isRegistering) {
-      setIsRegistering(true);
-      await doCreateUserWithEmailAndPassword(email, password);
-    }
+    // email = e.target.value;
+    // password = e.target.value;
+
+    doCreateUserWithEmailAndPassword(email, password)
+      .then((res) => {
+        const user = res.user;
+        setCurrentUser(user);
+        console.log(user);
+        if (userLoggedIn) {
+          Navigate("/");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    // if (!isRegistering) {
+    //   setIsRegistering(true);
+    //   await doCreateUserWithEmailAndPassword(email, password);
+    // }
   };
 
   return (
     <>
-      {userLoggedIn && <Navigate to={"/home"} replace={true} />}
-
       <main className="w-full h-screen flex self-center place-content-center place-items-center">
         <div className="w-96 text-gray-600 space-y-5 p-4 shadow-xl border rounded-xl">
           <div className="text-center mb-6">

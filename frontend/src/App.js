@@ -10,15 +10,13 @@ import { AuthProvider } from "./context/authContext";
 function App() {
   return (
     <>
-      <AuthProvider>
-        <Navbar />
+      <Navbar />
 
-        <Register />
-        <Login />
+      <Register />
+      <Login />
 
-        <HomePage />
-        <Footer />
-      </AuthProvider>
+      <HomePage />
+      <Footer />
     </>
   );
 }

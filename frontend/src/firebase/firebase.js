@@ -1,9 +1,10 @@
 // Import the functions you need from the SDKs you need
+
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDDgO8ZUmJs2Ge9TaTOYk4V1WpBP-hsAVs",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "stockmarket-57d10.firebaseapp.com",
   projectId: "stockmarket-57d10",
   storageBucket: "stockmarket-57d10.firebasestorage.app",

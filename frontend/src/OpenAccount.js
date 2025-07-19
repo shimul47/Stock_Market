@@ -11,7 +11,9 @@ function OpenAccount() {
         className="p-2 btn btn-primary fs-5"
         style={{ width: "20%", margin: "0 auto" }}
       >
-        Signup Now
+        <a href="signup" style={{ textDecoration: "none", color: "white" }}>
+          Signup Now
+        </a>
       </button>
     </div>
   );

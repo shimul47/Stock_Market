@@ -12,7 +12,7 @@ const BuyActionWindow = ({ uid }) => {
   const [stockPrice, setStockPrice] = useState(0.0);
 
   const handleBuyClick = () => {
-    axios.post("http://localhost:8080/newOrder", {
+    axios.post("https://backend-xi-green.vercel.app/newOrder", {
       name: uid,
       qty: stockQuantity,
       price: stockPrice,

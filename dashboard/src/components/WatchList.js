@@ -12,8 +12,36 @@ import {
 } from "@mui/icons-material";
 
 import { watchlist } from "../data/data";
-
+import { DoughnutChart } from "./DoughnutChart";
+const labels = watchlist.map((subArray) => subArray["name"]);
 const WatchList = () => {
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: "Price",
+        data: watchlist.map((stock) => stock.price),
+        backgroundColor: [
+          "rgba(255, 99, 132,.8)",
+          "rgba(54, 162, 235,.8)",
+          "rgba(255, 206, 86,.8)",
+          "rgba(75, 192, 192,.8)",
+          "rgba(153, 102, 255,.8)",
+          "rgba(255, 159, 64,.8)",
+        ],
+        borderColor: [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)",
+          "rgba(255, 159, 64, 1)",
+          "rgba(45, 159, 136, 1)",
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
   return (
     <div className="watchlist-container">
       <div className="search-container">
@@ -32,6 +60,7 @@ const WatchList = () => {
           return <WatchListItem stock={stock} key={index} />;
         })}
       </ul>
+      <DoughnutChart data={data} />
     </div>
   );
 };

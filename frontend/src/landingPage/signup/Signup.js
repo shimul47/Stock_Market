@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navigate, Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
 import { doCreateUserWithEmailAndPassword } from "../../firebase/auth";
 
@@ -7,123 +7,122 @@ const Register = () => {
   const { userLoggedIn, setCurrentUser } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setconfirmPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
+
   const onSubmit = async (e) => {
     e.preventDefault();
-    // email = e.target.value;
-    // password = e.target.value;
+    setErrorMessage("");
 
-    doCreateUserWithEmailAndPassword(email, password)
-      .then((res) => {
-        const user = res.user;
-        setCurrentUser(user);
-        console.log(user);
-        if (userLoggedIn) {
-          Navigate("/");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (password !== confirmPassword) {
+      setErrorMessage("Passwords do not match.");
+      return;
+    }
 
-    // if (!isRegistering) {
-    //   setIsRegistering(true);
-    //   await doCreateUserWithEmailAndPassword(email, password);
-    // }
+    setIsRegistering(true);
+
+    try {
+      const res = await doCreateUserWithEmailAndPassword(email, password);
+      const user = res.user;
+      setCurrentUser(user);
+      // console.log(user);
+      navigate("http://localhost:3001/");
+    } catch (err) {
+      console.error(err);
+      setErrorMessage(err.message);
+    } finally {
+      setIsRegistering(false);
+    }
   };
 
   return (
-    <>
-      <main className="w-full h-screen flex self-center place-content-center place-items-center">
-        <div className="w-96 text-gray-600 space-y-5 p-4 shadow-xl border rounded-xl">
-          <div className="text-center mb-6">
-            <div className="mt-2">
-              <h3 className="text-gray-800 text-xl font-semibold sm:text-2xl">
-                Create a New Account
-              </h3>
-            </div>
-          </div>
-          <form onSubmit={onSubmit} className="space-y-4">
-            <div>
-              <label className="text-sm text-gray-600 font-bold">Email</label>
-              <input
-                type="email"
-                autoComplete="email"
-                required
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:indigo-600 shadow-sm rounded-lg transition duration-300"
-              />
-            </div>
-
-            <div>
-              <label className="text-sm text-gray-600 font-bold">
-                Password
-              </label>
-              <input
-                disabled={isRegistering}
-                type="password"
-                autoComplete="new-password"
-                required
-                value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
-              />
-            </div>
-
-            <div>
-              <label className="text-sm text-gray-600 font-bold">
-                Confirm Password
-              </label>
-              <input
-                disabled={isRegistering}
-                type="password"
-                autoComplete="off"
-                required
-                value={confirmPassword}
-                onChange={(e) => {
-                  setconfirmPassword(e.target.value);
-                }}
-                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
-              />
-            </div>
-
-            {errorMessage && (
-              <span className="text-red-600 font-bold">{errorMessage}</span>
-            )}
-
-            <button
-              type="submit"
-              disabled={isRegistering}
-              className={`w-full px-4 py-2 text-white font-medium rounded-lg ${
-                isRegistering
-                  ? "bg-gray-300 cursor-not-allowed"
-                  : "bg-indigo-600 hover:bg-indigo-700 hover:shadow-xl transition duration-300"
-              }`}
-            >
-              {isRegistering ? "Signing Up..." : "Sign Up"}
-            </button>
-            <div className="text-sm text-center">
-              Already have an account? {"   "}
-              <Link
-                to={"/login"}
-                className="text-center text-sm hover:underline font-bold"
-              >
-                Continue
-              </Link>
-            </div>
-          </form>
+    <main className="d-flex align-items-center justify-content-center vh-100 bg-light">
+      <div
+        className="card shadow p-4"
+        style={{ width: "100%", maxWidth: "400px" }}
+      >
+        <div className="text-center mb-4">
+          <h3 className="fw-bold">Create a New Account</h3>
+          <p className="text-muted mb-0">
+            Without an account you can't visit Dashboard
+          </p>
         </div>
-      </main>
-    </>
+
+        <form onSubmit={onSubmit}>
+          <div className="mb-3">
+            <label htmlFor="email" className="form-label fw-bold">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              className="form-control"
+              autoComplete="email"
+              required
+              disabled={isRegistering}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label fw-bold">
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              className="form-control"
+              autoComplete="new-password"
+              required
+              disabled={isRegistering}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="confirmPassword" className="form-label fw-bold">
+              Confirm Password
+            </label>
+            <input
+              type="password"
+              id="confirmPassword"
+              className="form-control"
+              autoComplete="off"
+              required
+              disabled={isRegistering}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </div>
+
+          {errorMessage && (
+            <div className="alert alert-danger fw-bold text-center py-2">
+              {errorMessage}
+            </div>
+          )}
+
+          <button
+            type="submit"
+            className="btn btn-primary w-100 fw-medium"
+            disabled={isRegistering}
+          >
+            {isRegistering ? "Signing Up..." : "Sign Up"}
+          </button>
+
+          <div className="text-center mt-3">
+            <small className="text-muted">Already have an account?</small>{" "}
+            <Link to="/login" className="fw-bold text-decoration-none">
+              Continue
+            </Link>
+          </div>
+        </form>
+      </div>
+    </main>
   );
 };
 

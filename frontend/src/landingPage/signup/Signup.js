@@ -4,7 +4,7 @@ import { useAuth } from "../../context/authContext";
 import { doCreateUserWithEmailAndPassword } from "../../firebase/auth";
 
 const Register = () => {
-  const { userLoggedIn, setCurrentUser } = useAuth();
+  const { setCurrentUser } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -26,10 +26,8 @@ const Register = () => {
 
     try {
       const res = await doCreateUserWithEmailAndPassword(email, password);
-      const user = res.user;
-      setCurrentUser(user);
-      // console.log(user);
-      navigate("http://localhost:3001/");
+      setCurrentUser(res.user);
+      window.location.href = "https://bespoke-starburst-2377df.netlify.app/";
     } catch (err) {
       console.error(err);
       setErrorMessage(err.message);
@@ -39,27 +37,39 @@ const Register = () => {
   };
 
   return (
-    <main className="d-flex align-items-center justify-content-center vh-100 bg-light">
+    <main
+      className="d-flex align-items-center justify-content-center vh-100"
+      style={{ backgroundColor: "#e3f2fd" }}
+    >
       <div
-        className="card shadow p-4"
-        style={{ width: "100%", maxWidth: "400px" }}
+        className="card shadow p-5"
+        style={{
+          width: "100%",
+          maxWidth: "420px",
+          borderRadius: "15px",
+          borderTop: "5px solid #1976d2",
+        }}
       >
         <div className="text-center mb-4">
-          <h3 className="fw-bold">Create a New Account</h3>
+          <h3 className="fw-bold text-primary">Create a New Account</h3>
           <p className="text-muted mb-0">
-            Without an account you can't visit Dashboard
+            Without an account you can't access the Dashboard
           </p>
         </div>
 
         <form onSubmit={onSubmit}>
           <div className="mb-3">
-            <label htmlFor="email" className="form-label fw-bold">
+            <label
+              htmlFor="email"
+              className="form-label fw-semibold text-primary"
+            >
               Email
             </label>
             <input
               type="email"
               id="email"
-              className="form-control"
+              className="form-control border-primary"
+              placeholder="you@example.com"
               autoComplete="email"
               required
               disabled={isRegistering}
@@ -69,13 +79,17 @@ const Register = () => {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="password" className="form-label fw-bold">
+            <label
+              htmlFor="password"
+              className="form-label fw-semibold text-primary"
+            >
               Password
             </label>
             <input
               type="password"
               id="password"
-              className="form-control"
+              className="form-control border-primary"
+              placeholder="Enter password"
               autoComplete="new-password"
               required
               disabled={isRegistering}
@@ -85,13 +99,17 @@ const Register = () => {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="confirmPassword" className="form-label fw-bold">
+            <label
+              htmlFor="confirmPassword"
+              className="form-label fw-semibold text-primary"
+            >
               Confirm Password
             </label>
             <input
               type="password"
               id="confirmPassword"
-              className="form-control"
+              className="form-control border-primary"
+              placeholder="Re-enter password"
               autoComplete="off"
               required
               disabled={isRegistering}
@@ -108,16 +126,20 @@ const Register = () => {
 
           <button
             type="submit"
-            className="btn btn-primary w-100 fw-medium"
+            className="btn btn-primary w-100 fw-semibold"
             disabled={isRegistering}
+            style={{ backgroundColor: "#1976d2", borderColor: "#115293" }}
           >
             {isRegistering ? "Signing Up..." : "Sign Up"}
           </button>
 
           <div className="text-center mt-3">
             <small className="text-muted">Already have an account?</small>{" "}
-            <Link to="/login" className="fw-bold text-decoration-none">
-              Continue
+            <Link
+              to="/login"
+              className="fw-semibold text-decoration-none text-primary"
+            >
+              Login
             </Link>
           </div>
         </form>

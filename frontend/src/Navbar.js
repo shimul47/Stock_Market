@@ -10,7 +10,7 @@ export default function Navbar() {
       <div className="container py-2">
         <Link className="navbar-brand" to="/">
           <img
-            src="media/images/logo.svg"
+            src="media/images/mainlogo.png"
             alt="Logo"
             style={{ maxWidth: "200px", height: "auto" }}
           />

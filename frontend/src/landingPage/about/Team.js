@@ -4,48 +4,49 @@ function Team() {
   return (
     <div className="container">
       <div className="row p-3 mt-5 border-top">
-        <h1 className=" text-center mt-5 ">People</h1>
+        <h1 className="text-center mt-5">Our People</h1>
       </div>
+
       <div
-        className="row p-3 text-muted fs-6"
-        style={{ lineHeight: "1.8", fontSize: "1.2em" }}
+        className="row p-3 text-muted"
+        style={{ lineHeight: "1.8", fontSize: "1.1em" }}
       >
-        <div className="col-6 p-3 text-center">
+        {/* Profile Image and Name */}
+        <div className="col-md-4 col-sm-12 p-3 text-center">
           <img
-            src="media\images\shimulbhai.png"
-            style={{ borderRadius: "100%", width: "40%" }}
-          ></img>
+            src="media/images/shimulbhai.png"
+            alt="Sohanur Rahman"
+            style={{ borderRadius: "50%", width: "60%", maxWidth: "200px" }}
+          />
           <h4 className="mt-3">Sohanur Rahman</h4>
-          <h6>Founder, CE0</h6>
+          <h6>Founder & CEO</h6>
         </div>
 
-        <div className="col-6 p-5">
+        {/* Profile Description */}
+        <div className="col-md-8 col-sm-12 p-3">
           <p>
-            Shimul bootstrapped and founded Zerodha in 2010 to overcome the
-            hurdles he faced during his decade long stint as a trader. Today,
-            Zerodha has changed the landscape of the Indian broking industry.
+            Sohanur founded <strong>TradeBangla</strong> in 2025 to overcome
+            challenges he faced during his years as a trader in Bangladesh.
+            Today, TradeBangla is reshaping the landscape of online trading in
+            the country.
           </p>
           <p>
-            He is a member of the SEBI Secondary Market Advisory Committee
-            (SMAC) and the Market Data Advisory Committee (MDAC).
+            He actively contributes to financial advisory boards in Bangladesh
+            and promotes investor education across the nation.
           </p>
-          <p>Playing basketball is his zen.</p>
+          <p>
+            When not trading, he enjoys playing basketball and exploring Dhaka's
+            vibrant culture.
+          </p>
           <p>
             Connect on{" "}
-            <a href="" style={{ textDecoration: "none" }}>
-              Homepage{" "}
-            </a>
-            /
-            <a href="" style={{ textDecoration: "none" }}>
-              {" "}
-              TradingQnA{" "}
-            </a>
-            /
-            <a href="" style={{ textDecoration: "none" }}>
-              {" "}
-              Twitter
-            </a>
-            <a>testing new connection</a>
+            <a href="#" style={{ textDecoration: "none" }}>
+              Homepage
+            </a>{" "}
+            /{" "}
+            <a href="#" style={{ textDecoration: "none" }}>
+              TradeBangla Forum
+            </a>{" "}
           </p>
         </div>
       </div>

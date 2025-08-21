@@ -4,9 +4,11 @@ import axios from "axios";
 const Positions = () => {
   const [allpositions, setAllpositions] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:8080/allpositions").then((res) => {
-      setAllpositions(res.data);
-    });
+    axios
+      .get("https://stock-market-8abd.onrender.com/allpositions")
+      .then((res) => {
+        setAllpositions(res.data);
+      });
   }, []);
 
   return (

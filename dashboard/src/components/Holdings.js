@@ -5,10 +5,12 @@ import { VerticalGraph } from "./VerticalGraph";
 const Holdings = () => {
   const [allholdings, setAllholdings] = useState([]);
   useEffect(() => {
-    axios.get("https://backend-xi-green.vercel.app/allholdings").then((res) => {
-      setAllholdings(res.data);
-      console.log(res.data);
-    });
+    axios
+      .get("https://stock-market-8abd.onrender.com/allholdings")
+      .then((res) => {
+        setAllholdings(res.data);
+        console.log(res.data);
+      });
   }, []);
   // const labels = [
   //   "January",

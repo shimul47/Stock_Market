@@ -83,6 +83,17 @@ const Menu = () => {
               </p>
             </Link>
           </li>
+          <li>
+            <Link
+              style={{ textDecoration: "none" }}
+              to="https://stock-market-lite101.netlify.app/"
+              onClick={() => handleMenuClick(5)}
+            >
+              <p className={selectedMenu === 6 ? activeMenuClass : menuClass}>
+                Logout
+              </p>
+            </Link>
+          </li>
         </ul>
         <hr />
         <div className="profile" onClick={handleDropDown}>

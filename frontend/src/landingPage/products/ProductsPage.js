@@ -47,7 +47,7 @@ function ProductsPage() {
       <p className="text-center mt-5 mb-5">
         Want to know more about our technology stack? Check out the{" "}
         <a style={{ textDecoration: "none" }} href="">
-          Zerodha.tech blog{" "}
+          TradeBangla.tech blog{" "}
           <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
         </a>
       </p>

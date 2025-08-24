@@ -1,7 +1,6 @@
 import React from "react";
 
 function CreateTicket() {
-  // Topics and links
   const topics = [
     {
       title: "Account Opening",
@@ -37,29 +36,35 @@ function CreateTicket() {
         "Risk Management",
       ],
     },
-    // Add more topics here
   ];
 
   return (
-    <div className="container">
-      <div className="row p-5 mt-5 mb-5">
-        <h1 className="fs-2 text-center mb-5">
-          To create a ticket, select a relevant topic
-        </h1>
+    <div className="container my-5">
+      <h1 className="fs-2 text-center mb-5">
+        To create a ticket, select a relevant topic
+      </h1>
 
+      <div className="row g-4">
         {topics.map((topic, index) => (
-          <div key={index} className="col-lg-4 col-md-6 col-sm-12 p-3">
-            <h4>
-              <i className="fa fa-plus-circle me-2" aria-hidden="true"></i>
-              {topic.title}
-            </h4>
-            {topic.links.map((link, idx) => (
-              <p key={idx} className="mb-2">
-                <a href="#" style={{ textDecoration: "none", lineHeight: "2" }}>
-                  {link}
-                </a>
-              </p>
-            ))}
+          <div key={index} className="col-lg-4 col-md-6 col-sm-12">
+            <div className="card h-100 shadow-sm p-3">
+              <h4 className="mb-3">
+                <i className="fa fa-plus-circle me-2" aria-hidden="true"></i>
+                {topic.title}
+              </h4>
+              <div className="d-flex flex-column gap-2">
+                {topic.links.map((link, idx) => (
+                  <a
+                    key={idx}
+                    href="#"
+                    className="text-decoration-none text-primary"
+                    style={{ lineHeight: "1.8" }}
+                  >
+                    {link}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         ))}
       </div>

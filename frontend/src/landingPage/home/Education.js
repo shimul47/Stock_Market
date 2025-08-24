@@ -2,27 +2,44 @@ import React from "react";
 
 function Education() {
   return (
-    <div className="container mb-2">
-      <div className="row">
-        <div className="col-6">
-          <img src="media\images\education.svg" style={{ width: "70%" }}></img>
+    <div className="container mb-5">
+      <div className="row align-items-center">
+        {/* Image Section */}
+        <div className="col-12 col-md-6 text-center mb-4 mb-md-0">
+          <img
+            src="media/images/education.svg"
+            alt="Education"
+            className="img-fluid"
+            style={{ maxWidth: "70%" }}
+          />
         </div>
-        <div className="col-6  mb-5">
-          <h2 className="mb-4 fs-2">Free and open market education</h2>
-          <p className="mb-2">
+
+        {/* Text Section */}
+        <div className="col-12 col-md-6">
+          <h2 className="mb-4 fs-2 text-center text-md-start">
+            Free and open market education
+          </h2>
+          <p className="mb-3 text-muted text-center text-md-start">
             Varsity, the largest online stock market education book in the world
-            covering everything from the basics to advance trading.
+            covering everything from the basics to advanced trading.
           </p>
-          <a href="" style={{ textDecoration: "none" }}>
-            Varsity <i class="fa fa-long-arrow-right" aria-hidden="true"></i>{" "}
-          </a>
-          <p className="mt-5">
+          <div className="text-center text-md-start">
+            <a href="#" className="fw-semibold text-decoration-none">
+              Varsity{" "}
+              <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <p className="mt-5 mb-3 text-muted text-center text-md-start">
             TradingQ&A, the most active trading and investment community in
             Bangladesh for all your market related queries.
           </p>
-          <a className="mt-2 " href="" style={{ textDecoration: "none" }}>
-            TradingQ&A <i class="fa fa-long-arrow-right" aria-hidden="true"></i>{" "}
-          </a>
+          <div className="text-center text-md-start">
+            <a href="#" className="fw-semibold text-decoration-none">
+              TradingQ&A{" "}
+              <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
       </div>
     </div>

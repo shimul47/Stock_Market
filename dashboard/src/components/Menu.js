@@ -86,7 +86,7 @@ const Menu = () => {
           <li>
             <Link
               style={{ textDecoration: "none" }}
-              to="https://stock-market-lite101.netlify.app/"
+              to="https://tradebangla.netlify.app/"
               onClick={() => handleMenuClick(5)}
             >
               <p className={selectedMenu === 6 ? activeMenuClass : menuClass}>

@@ -1,7 +1,6 @@
 import React from "react";
 
 function Universe() {
-  // Example logos; replace with actual TradeBangla partner logos
   const partners = [
     {
       name: "InvestBangla",
@@ -37,32 +36,35 @@ function Universe() {
 
   return (
     <div className="container mt-5">
-      <div className="row text-center">
+      <div className="text-center mb-5">
         <h3>TradeBangla Universe</h3>
-        <p className="mb-5">
+        <p>
           Extend your trading and investment experience further with our partner
           platforms
         </p>
+      </div>
 
+      <div className="row justify-content-center">
         {partners.map((partner, index) => (
           <div
             key={index}
-            className="col-lg-4 col-md-6 col-sm-12 p-3 mt-4 text-center"
+            className="col-lg-4 col-md-6 col-sm-12 mb-4 d-flex flex-column align-items-center"
           >
             <img
               src={partner.img}
               alt={partner.name}
-              style={{ maxWidth: "80px", height: "auto" }}
+              className="img-fluid"
+              style={{ maxWidth: "80px" }}
             />
-            <p className="text-muted mt-3">{partner.description}</p>
+            <p className="text-muted mt-3 text-center">{partner.description}</p>
           </div>
         ))}
+      </div>
 
-        <div className="w-100 text-center mt-5 mb-5">
-          <a href="/signup" className="btn btn-primary btn-lg">
-            Signup Now
-          </a>
-        </div>
+      <div className="text-center mt-5 mb-5">
+        <a href="/signup" className="btn btn-primary btn-lg">
+          Signup Now
+        </a>
       </div>
     </div>
   );

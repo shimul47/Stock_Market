@@ -3,18 +3,16 @@ import React from "react";
 function Brokerage() {
   return (
     <div className="container mb-4">
-      <div className="row p-4 mt-5  border-top">
-        <div className="col-8 ">
-          <a href="" style={{ textDecoration: "none" }}>
-            <h3 className="fs-3 ">Brokerage Calculator</h3>
+      <div className="row p-4 mt-5 border-top g-4">
+        {/* Brokerage Calculator Section */}
+        <div className="col-lg-8 col-md-12">
+          <a href="#" style={{ textDecoration: "none" }}>
+            <h3 className="fs-3">Brokerage Calculator</h3>
             <ul
-              className="text-muted p-4 "
-              style={{
-                lineHeight: "2.5",
-                textAlign: "left",
-              }}
+              className="text-muted ps-3"
+              style={{ lineHeight: "2", textAlign: "left" }}
             >
-              <li>Rise, fall, learn, repeat </li>
+              <li>Rise, fall, learn, repeat</li>
               <li>Even the darkest night ends in dawn</li>
               <li>Less talk, more action</li>
               <li>Broken but still breathing</li>
@@ -24,12 +22,14 @@ function Brokerage() {
             </ul>
           </a>
         </div>
-        <div className="col-4 p-2">
-          <a href="" style={{ textDecoration: "none" }}>
-            <h3 className="fs-3 mb-4">List of charges</h3>
+
+        {/* List of Charges Section */}
+        <div className="col-lg-4 col-md-12">
+          <a href="#" style={{ textDecoration: "none" }}>
+            <h3 className="fs-3 mb-3">List of charges</h3>
             <ul
-              className="text-muted"
-              style={{ lineHeight: "2.5", textAlign: "left" }}
+              className="text-muted ps-3"
+              style={{ lineHeight: "2", textAlign: "left" }}
             >
               <li>Lost, maybe just exploring</li>
               <li>Hustle silently, win loudly</li>
